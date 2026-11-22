@@ -9,6 +9,7 @@ import {SolarTime} from './components/SolarTime';
 import {useNow, useStoredState} from './lib/hooks';
 import {formatDate, placeNow} from './lib/time';
 import {fetchForecast, type Forecast, nameForCoordinates, type Place, type Units} from './lib/weather';
+import {SsoAccount} from './lib/SsoAccount';
 
 /** Refetch the forecast this often while the page is open. */
 const REFRESH_MS = 15 * 60_000;
@@ -111,6 +112,7 @@ export const App = () => {
               ' '}
           </p>
         </div>
+        <SsoAccount />
         <div className='order-last w-full sm:order-none sm:w-72'>
           <LocationSearch onSelect={found => setSaved({place: found, fromDevice: false})} />
         </div>
