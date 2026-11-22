@@ -1,0 +1,125 @@
+/*
+ * Copied from https://github.com/cvrnz/heroui-themes (themes/shadcn-blue.css).
+ * Edit it there and copy it back here.
+ *
+ * shadcn blue: a HeroUI v3 theme inspired by shadcn/ui.
+ * Neutral greys, a blue accent, hairline borders and shadcn's rounding.
+ * Import after HeroUI's styles:
+ *   @import 'tailwindcss';
+ *   @import '@heroui/styles';
+ *   @import './shadcn-blue.css';
+ */
+:root {
+  --radius: 0.625rem;
+  --field-radius: calc(var(--radius) - 2px);
+  --field-border-width: 1px;
+}
+:root,
+.light,
+.default,
+[data-theme='light'],
+[data-theme='default'] {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --surface: oklch(1 0 0);
+  --surface-secondary: oklch(0.97 0 0);
+  --surface-tertiary: oklch(0.94 0 0);
+  --overlay: oklch(1 0 0);
+  --muted: oklch(0.556 0 0);
+  --default: oklch(0.97 0 0);
+  --default-foreground: oklch(0.205 0 0);
+  --segment: oklch(1 0 0);
+  --field-background: oklch(1 0 0);
+  --field-foreground: oklch(0.145 0 0);
+  --field-border: oklch(0.922 0 0);
+  --border: oklch(0.922 0 0);
+  --separator: oklch(0.922 0 0);
+  --focus: oklch(0.623 0.19 259.8);
+  --accent: oklch(0.546 0.215 262.9);
+  --accent-foreground: oklch(0.985 0 0);
+  --success: oklch(0.6 0.13 150);
+  --success-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.205 0 0);
+  --danger: oklch(0.577 0.245 27.325);
+  --danger-foreground: oklch(0.985 0 0);
+  --surface-shadow: 0 0 0 1px var(--border), 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --overlay-shadow: 0 0 0 1px var(--border), 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --field-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.dark,
+[data-theme='dark'] {
+  --background: #111111;
+  --foreground: oklch(0.985 0 0);
+  --surface: oklch(0.228 0 0);
+  --surface-secondary: oklch(0.28 0 0);
+  --surface-tertiary: oklch(0.31 0 0);
+  --overlay: oklch(0.228 0 0);
+  --muted: oklch(0.708 0 0);
+  --default: oklch(0.28 0 0);
+  --default-foreground: oklch(0.985 0 0);
+  --segment: oklch(0.35 0 0);
+  --field-background: oklch(1 0 0 / 0.045);
+  --field-foreground: oklch(0.985 0 0);
+  --field-border: oklch(1 0 0 / 0.15);
+  --border: oklch(1 0 0 / 0.1);
+  --separator: oklch(1 0 0 / 0.1);
+  --focus: oklch(0.546 0.215 262.9);
+  --accent: oklch(0.623 0.19 259.8);
+  --accent-foreground: oklch(0.985 0 0);
+  --success: oklch(0.7 0.13 150);
+  --success-foreground: oklch(0.145 0 0);
+  --warning: oklch(0.8 0.14 75);
+  --warning-foreground: oklch(0.145 0 0);
+  --danger: oklch(0.704 0.191 22.216);
+  --danger-foreground: oklch(0.985 0 0);
+  --surface-shadow: 0 0 0 1px var(--border);
+  --overlay-shadow: 0 0 0 1px var(--border), 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --field-shadow: 0 0 0 0 transparent inset;
+}
+/* shadcn shapes: cards and alerts rounded-xl, popovers rounded-md */
+.card,
+.alert {
+  --radius-3xl: calc(var(--radius) + 4px);
+}
+.popover {
+  --radius-3xl: calc(var(--radius) - 2px);
+}
+/* HeroUI's pill buttons, chips and tabs become rounded-md. Kept in the components layer so
+   HeroUI's own grouped/variant rules (e.g. square inner corners in a button group) still win. */
+@layer components {
+  .button,
+  .toggle-button,
+  .button-group,
+  .toggle-button-group,
+  .tabs__tab,
+  .tabs__indicator {
+    border-radius: calc(var(--radius) - 2px);
+  }
+  .button-group--horizontal .button:first-child,
+  .toggle-button-group--horizontal .toggle-button:first-child {
+    border-start-start-radius: calc(var(--radius) - 2px);
+    border-end-start-radius: calc(var(--radius) - 2px);
+  }
+  .button-group--horizontal .button:last-child,
+  .toggle-button-group--horizontal .toggle-button:last-child {
+    border-start-end-radius: calc(var(--radius) - 2px);
+    border-end-end-radius: calc(var(--radius) - 2px);
+  }
+  .button-group--vertical .button:first-child,
+  .toggle-button-group--vertical .toggle-button:first-child {
+    border-top-left-radius: calc(var(--radius) - 2px);
+    border-top-right-radius: calc(var(--radius) - 2px);
+  }
+  .button-group--vertical .button:last-child,
+  .toggle-button-group--vertical .toggle-button:last-child {
+    border-bottom-left-radius: calc(var(--radius) - 2px);
+    border-bottom-right-radius: calc(var(--radius) - 2px);
+  }
+  .tabs__list-container {
+    border-radius: var(--radius);
+  }
+  .chip {
+    border-radius: calc(var(--radius) - 4px);
+  }
+}

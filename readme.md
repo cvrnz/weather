@@ -3,7 +3,8 @@
 A simple weather app: current conditions, the next 24 hours, 7 days, and the
 true solar time where you are.
 
-Built with Vite, React, TypeScript and HeroUI (same theme as vera). Weather
+Built with Vite, React, TypeScript and HeroUI, with the shadcn-blue
+theme from [heroui-themes](https://github.com/cvrnz/heroui-themes) in `src/shadcn-blue.css`. Weather
 comes from [Open-Meteo](https://open-meteo.com/), which is free and needs no
 API key.
 
